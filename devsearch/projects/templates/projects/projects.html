@@ -1,14 +1,29 @@
 {% extends 'main.html' %} {% block content %}
-<h1>Project templates</h1>
 
-<hr />
 <h1>Projects List</h1>
 
-<ul>
+<table>
+  <tr>
+    <th>Projects</th>
+    <th>Votes</th>
+    <th>Ratio</th>
+    <th>Crated</th>
+    <th></th>
+    <th></th>
+    <!-- <th>Link</th> -->
+  </tr>
   {% for project in projects %}
-  <p>1</p>
-  <li>Title:{{project.title}}, desp: {{project.description}}</li>
+  <tr>
+    <td>{{project.title}}</td>
+    <td>{{project.vote_total}}</td>
+    <td>{{project.vote_ratio}}</td>
+    <td>{{project.created}}</td>
+    <td><a href="{% url 'project' project.id %}">View</a></td>
+    <td><a href="{% url 'update-project' project.id %}">Edit</a></td>
+    <td><a href="{% url 'delete-project' project.id %}">Delete</a></td>
+  </tr>
   {% endfor%}
-</ul>
+</table>
+
 
 {% endblock content %}
