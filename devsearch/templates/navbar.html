@@ -1,3 +1,4 @@
-<a href="{% url 'projects'%}"><h1>Logo</h1></a>
+{% load static %}
+<a href="{% url 'projects'%}"><img src="{% static 'images/logo.svg' %}" alt="Logo"></a>
 <a href="{% url 'create-project'%}">Add Project</a>
 <hr>
